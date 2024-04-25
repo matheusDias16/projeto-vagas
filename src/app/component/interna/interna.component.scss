@@ -1,0 +1,79 @@
+.cont{
+    flex-direction: row;
+    display: flex;
+    .quadro{
+        margin-left: 5%;
+        margin-right: 5%;
+        
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        
+        .item{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            h3{
+                margin-right: 40px;
+
+            }
+        }
+      
+
+    }
+    .logo{
+        display: flex;
+        flex-direction: row;
+        img{
+            width: 200px;
+        }
+    }
+    button{
+        margin-left: 5%;
+        margin-right: 5%;
+        height: 75px;
+        border: none;
+        background: #0017E3;
+        color: white;
+        margin-top: 20px;
+
+
+    }
+
+}
+tr:nth-child(even) {
+    background-color: #a09f9f;
+  }
+  
+  /* The Modal (background) */
+  .modal {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+  }
+  
+  
+  .modal-content {
+    background-color: black;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%; 
+    height: 60%;
+    color: white;
+    .mdl{
+        
+        button{
+            width: 90%;
+        }
+        mat-checkbox{
+            color: black;
+        }
+    }
+ }

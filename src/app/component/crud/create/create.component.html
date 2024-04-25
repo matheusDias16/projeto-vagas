@@ -1,0 +1,178 @@
+<h1>
+    Criar vagas
+</h1>
+
+<form [formGroup]="formVagas">
+
+    <div>
+        <label>
+            Vagas
+            <input type="text" formControlName="vaga">
+        </label>
+    </div>
+
+    <div>
+        <label>
+            Empresa
+            <select formControlName="empresa">
+                <option *ngFor="let emp of empresa" [value]="emp.id">
+                    {{emp.nome}}
+                </option>
+            </select>
+        </label>
+    </div>
+
+    <div>
+        <label>
+            Categorias
+            <select formControlName="categoria">
+                <option *ngFor="let cat of categoria" [value]="cat.id">
+                    {{cat.categoria}}
+                </option>
+            </select>
+        </label>
+    </div>
+    <div>
+        <label>
+            Quantidade
+            <select formControlName="quantidade">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </label>
+    </div>
+    <div>
+        <label>
+            Estado
+            <input type="text" formControlName="estado">
+        </label>
+    </div>
+
+    <div>
+        <label>
+            Cidade
+            <input type="text" formControlName="cidade">
+        </label>
+    </div>
+    <div>
+        <label>
+            descrição
+            
+               <input type="text" formControlName="descricao">
+        
+        </label>
+    </div>
+    <div>
+        <label>
+           Dias
+            <input type="text" formControlName="dias">
+        </label>
+    </div>
+    <div>
+        <label>
+            Inicio
+            <input type="text" formControlName="inicio">
+        </label>
+    </div>
+    <div>
+        <label>
+            Fim
+            <input type="text" formControlName="fim">
+        </label>
+    </div>
+    <div>
+        <label>
+            Contratação
+            <input type="text" formControlName="contratacao">
+        </label>
+    </div>
+    <div>
+        <label>
+            Informações adicionais
+            <input type="text" formControlName="infosAdicionais">
+        </label>
+    </div>
+   
+
+    <div>
+
+        <h3>
+            Salario
+        </h3>
+        <!-- <ng-container *ngFor="let val of salario">
+            <label>
+               Min
+                <input type="number" [(ngModel)]="val.min" [ngModelOptions]="{standalone: true}">
+            </label>
+            <label>
+               Max
+                <input type="number" [(ngModel)]="val.max" [ngModelOptions]="{standalone: true}">
+            </label>
+           
+        </ng-container> -->
+        <ng-container >
+            <label>
+               min
+                <input type="number" formControlName="min">
+            </label>
+            <label>
+                max
+                <input type="number" formControlName="max">
+            </label>
+            <br>
+        </ng-container>
+
+        <div>
+            
+        </div>
+    </div>
+</form>
+
+<hr>
+
+<div class="questionario">
+    <button type="button" (click)="criaPergunta()">
+        Adiciona pergunta
+    </button>
+    <ng-container *ngFor="let quest of questionario">
+    
+        <hr>
+
+        <div>
+            <label>
+                Pergunta
+                <input type="text" [(ngModel)]="quest.pergunta">
+            </label>
+        </div>
+        <div>
+            <label>
+                Tipo da Pergunta
+                <select [(ngModel)]="quest.tipoPergunta">
+                    <option value="alternativaUnica">
+                        Alternativa Unica
+                    </option>
+                    <option value="alternativaMultipla">
+                        Alternativa Multipla
+                    </option>
+                    <option value="texto">
+                        Texto Corrido
+                    </option>
+                </select>
+            </label>
+        </div>
+        <div>
+            <label>
+                Alternativas
+                <input type="text" [(ngModel)]="quest.alternativas[0]">
+            </label>
+        </div>
+    </ng-container>
+</div>
+
+<hr>
+
+<button type="button" (click)="criaVaga()">
+    Finalizar
+</button>
+<hr>

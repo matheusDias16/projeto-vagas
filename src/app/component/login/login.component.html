@@ -1,0 +1,71 @@
+<section *ngIf="!sign">
+  <div class="contLogin">
+    <h1>Login</h1>
+
+    <form [formGroup]="formLogin">
+      <div class="contInput">
+        <label>
+          <span>
+            Username
+          </span>
+          <input type="text" formControlName="user">
+        </label>
+      </div>
+
+      <div class="contInput">
+        <label>
+          <span>
+            Senha
+          </span>
+          <input type="password" formControlName="pass">
+        </label>
+      </div>
+    </form>
+    <button type="button" (click)="fazLogin()">
+      Entrar
+    </button>
+  </div>
+  <button (click)="mostraCadastro()">Fazer cadastro</button>
+</section>
+<section *ngIf="sign">
+  <div class="contLogin">
+    <h1>Cadastro</h1>
+
+    <form [formGroup]="formCadastro">
+      <div class="contInput">
+        <label>
+          <span>
+            Username 
+          </span>
+          <input type="text" formControlName="user">
+        </label>
+      </div>
+
+      <div class="contInput">
+        <label>
+          <span>
+            Senha
+          </span>
+          <input type="password" formControlName="pass">
+        </label>
+      </div>
+
+      <div class="contInput">
+        <label>
+          <span>
+            nome completo
+          </span>
+          <input type="text" formControlName="nomeCompleto">
+        </label>
+      </div>
+
+    </form>
+    <button type="button" (click)="criarCadastro()">
+      Criar
+    </button>
+  </div>
+  <button (click)="mostraCadastro()">Voltar pro login</button>
+
+
+
+</section>

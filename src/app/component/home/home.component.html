@@ -1,0 +1,21 @@
+<div class="imagem">
+    <img src="../assets/Rectangle 7.png " alt="">
+</div>
+<h1>Vagas por categorias</h1>
+<div class="retangulos" >
+    <div class="linha">
+    <div class="itens" *ngFor="let categ of categoria" routerLink="/busca/categoria/{{categ.id}}">
+   <img [src]="categ.icone" alt="">
+   <p>{{categ.categoria}}</p>
+    </div>
+</div>
+</div>
+<h1>Vagas por empresas</h1>
+<div class="retangulos">
+    <div class="linha">
+    <div class="itens" *ngFor="let emp of empresa"  routerLink="/busca/empresa/{{emp.id}}">
+   <img [src]="emp.logo" alt="">
+   <p>{{emp.nome}}</p>
+    </div>
+</div>
+</div>

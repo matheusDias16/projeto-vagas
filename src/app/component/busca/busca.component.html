@@ -1,0 +1,26 @@
+<h1 *ngIf="tipoDeBusca == 'empresa'">Vagas da empresa: {{findEmpresa(idDaUrl)}} </h1>
+<h1 *ngIf="tipoDeBusca == 'categoria'">Vagas da categoria: {{categoria.categoria}} </h1>
+<div class="cont">
+    <div class="quadro" *ngFor="let vaga of vagas">
+       <div class="item"> 
+        <h2>{{vaga.vaga}}</h2>
+        <h3>Vagas:{{vaga.quantidade}}</h3>
+    </div>
+    <div class="item">
+    <h2>Empresa: {{findEmpresa(vaga.empresa)}}</h2> 
+    <h3 >
+        Estado: {{vaga.local.estado}}
+        Cidade: {{vaga.local.cidade}}
+     </h3>
+</div>
+    <div class="item">
+    <h2>De R${{vaga.salario.min}} até R${{vaga.salario.max}}</h2>
+        
+        <h3>Publicada em :{{converteHoras(vaga.publicacao)}}</h3>
+    </div>
+    
+    <button routerLink="/interna/{{vaga.id}}">
+        Conheça a Vaga
+    </button>
+    </div>
+</div>

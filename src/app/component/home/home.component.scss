@@ -1,0 +1,50 @@
+h1 {
+    text-align: center;
+}
+
+.imagem {
+
+    img {
+        height: 300px;
+        width: 100%;
+    }
+}
+.retangulos{
+    margin-left: 17%;
+    width: 100%;
+   
+    .linha{
+display: flex;
+flex-direction: row;
+gap: 20px;
+    
+    .itens{
+        background: #6F6F6F;
+        width: 22%;
+        height: 252px;
+        border-radius: 18px;
+        
+            
+            img{
+                width: 80px;
+                margin-left: 35%;
+                margin-top: 25%;
+            margin-bottom: 4%;
+
+        }
+        
+        p{
+            text-align: center;
+            color: white;
+            font-family: Inter;
+            font-size: 38px;
+            font-weight: 700;
+            line-height: 46px;
+            letter-spacing: 0em;
+            text-align: center;
+            
+        }
+        
+    }
+}
+}

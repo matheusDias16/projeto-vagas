@@ -1,0 +1,87 @@
+<div class="cont">
+<div class="quadro" >
+    <div class="item"> 
+     <h2>{{vaga.vaga}}</h2>
+     <h3>{{vaga.quantidade}} Vaga</h3>
+ </div>
+ <div class="item">
+
+    <h3>
+        Estado: {{vaga.local.estado}}
+        Cidade: {{vaga.local.cidade}}
+     </h3>
+</div>
+    <div class="item">
+    <h2>De R${{vaga.salario.min}} até R${{vaga.salario.max}}</h2>
+        
+        <h3>Publicada em :{{converteHoras(vaga.publicacao)}}</h3>
+    </div>
+    <p>
+    {{vaga.descricao}}
+    </p>
+    <div class="hora" > 
+       Horário: {{vaga.expediente.dias}} das {{vaga.expediente.inicio}} até as {{vaga.expediente.fim}}
+    </div>
+    <p>contratacao: {{vaga.contratacao}}</p>
+    <p>Informações adicionais: {{vaga.infosAdicionais}}</p>
+<div class="logo">
+    <img [src]="findEmpresa(vaga.empresa).logo" alt="">
+    <b>{{findEmpresa(vaga.empresa).nome}}</b>
+</div>
+<button (click)="abrirModalQuest()">
+    Responder ao questionário para se cadastrar
+</button>
+</div>  
+
+
+<div class="modal" *ngIf="modalQuestionario">
+    <div class="modal-content" >
+        <span  class="close" (click)="fecharModal()">&times;</span>
+        <h1 >
+          Questionário para {{findEmpresa(vaga.empresa).nome}}
+        </h1>
+    
+        <div class="mdl"  >
+           <div *ngFor="let quest of vaga.questionario;index as ind">
+            {{quest.pergunta}} <br>
+            <ng-container *ngIf="quest.tipoPergunta == 'alternativaUnica' ">
+           
+                <mat-radio-group [(ngModel)]="resposta.respostas[ind][0]">
+                  <div>
+                    <ng-container *ngFor="let alternativa of quest.alternativas" >
+                    
+                        <mat-radio-button  [value]="alternativa">{{alternativa}} </mat-radio-button>
+                    
+                    </ng-container>  
+                </div>
+            </mat-radio-group>
+            
+        </ng-container>
+
+        <ng-container *ngIf="quest.tipoPergunta == 'alternativaMultipla' ">
+            
+                  <div >
+                    <ng-container *ngFor="let alternativa of quest.alternativas">
+                    <mat-checkbox [checked]="resposta.respostas[ind].includes(alternativa)"
+                    (click)="mudancaDeValor(alternativa,ind)">
+                        {{alternativa}}
+                    </mat-checkbox>
+                </ng-container>  
+                </div>
+            
+        </ng-container>
+
+        <ng-container *ngIf="quest.tipoPergunta == 'texto' ">
+            <mat-form-field >
+                  <div>
+                    <input matInput type="text" [(ngModel)]="resposta.respostas[ind][0]">
+                  </div>
+            </mat-form-field>
+        </ng-container>
+        </div>
+        <button (click)="responderQuestionario()">Finalizar</button>
+        </div>
+        
+    
+    </div>
+    </div>

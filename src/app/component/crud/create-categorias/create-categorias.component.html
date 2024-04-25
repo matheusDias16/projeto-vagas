@@ -1,0 +1,90 @@
+<h1>
+  Todas categorias
+</h1>
+
+<hr style="margin: 10px;">
+
+<table>
+
+  <tbody>
+    <tr *ngFor="let cat of categoria">
+      <td>
+        {{ cat.categoria }}
+      </td>
+
+
+      <button type="button" (click)="abreModalEditar(cat.id)"> <!---->
+        EDITAR
+      </button>
+
+      <td>
+        <button type="button" (click)="deletarCategoria(cat.id)"> <!---->
+          DELETAR
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br><br>
+<h1>
+  Criar Categorias
+</h1>
+<hr style="margin: 10px;">
+
+<form [formGroup]="formularioCategoria">
+
+  <div>
+    <label>
+      Categoria
+      <input type="text" formControlName="categoria">
+    </label>
+  </div>
+
+  <div>
+    <label>
+      icone
+      <input type="text" formControlName="icone">
+    </label>
+  </div>
+
+
+</form>
+<button type="button" (click)="criaCategoria()">
+  Finalizar
+</button>
+
+<div class="modal" *ngIf="modalAberto">
+
+  <div class="modal-content">
+    <span class="close" (click)="fechaModal()">&times;</span>
+
+    <h3 *ngIf="edicaoCategoria">
+      Edição de imovel
+    </h3>
+
+
+    <form [formGroup]="formularioCategoria">
+
+      <div>
+        <label>
+          Categoria da vaga
+          <input type="text" formControlName="categoria">
+        </label>
+      </div>
+
+      <div>
+        <label>
+          icone
+          <input type="text" formControlName="icone">
+        </label>
+      </div>
+
+      <div>
+        <button type="button" (click)="editaCategoria()">
+          Editar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

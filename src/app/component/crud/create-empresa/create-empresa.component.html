@@ -1,0 +1,87 @@
+<h1>
+  Todas Empresas
+</h1>
+
+<hr style="margin: 10px;">
+
+<table>
+
+  <tbody>
+    <tr *ngFor="let emp of empresa">
+      <td>
+        {{ emp.nome }}
+      </td>
+
+
+      <button type="button" (click)="abreModalEditar(emp.id)"> <!---->
+        EDITAR
+      </button>
+
+      <td>
+        <button type="button" (click)="deletarEmpresa(emp.id)"> <!---->
+          DELETAR
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br><br>
+<h1>
+  Criar Empresas
+</h1>
+<hr style="margin: 10px;">
+
+<form [formGroup]="formularioEmpresa">
+
+  <div>
+    <label>
+      nome da empresa
+      <input type="text" formControlName="nome">
+    </label>
+  </div>
+
+  <div>
+    <label>
+      logo da empresa
+      <input type="text" formControlName="logo">
+    </label>
+  </div>
+
+
+</form>
+<button type="button" (click)="criaEmpresa()">
+  Finalizar
+</button>
+<div class="modal" *ngIf="modalAberto">
+  <div class="modal-content">
+    <span class="close" (click)="fechaModal()">&times;</span>
+
+    <h3 *ngIf="edicaoEmpresa">
+      Edição da Empresa
+    </h3>
+
+
+    <form [formGroup]="formularioEmpresa">
+
+      <div>
+        <label>
+          Nome da empresa
+          <input type="text" formControlName="nome">
+        </label>
+      </div>
+
+      <div>
+        <label>
+          Logo
+          <input type="text" formControlName="logo">
+        </label>
+      </div>
+      <div>
+        <button type="button" (click)="editarEmpresa()">
+          Editar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
